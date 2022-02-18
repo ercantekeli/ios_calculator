@@ -19,7 +19,7 @@
     display: grid;
     grid-template-columns: 4fr;
     height: 9rem;
-    background-color: rgb(24, 24, 24);
+    background-color: rgb(0, 0, 0);
     margin-top: 5rem;
 }
 #screen1{
