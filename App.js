@@ -24,6 +24,8 @@ let equal = document.querySelector(".equal");
 
 let number1 = [];
 let number2 = [];
+let operand = [];
+let result ;
 
 button0.addEventListener("click", ()=>{
     number1.push(button0.innerText)
@@ -80,7 +82,61 @@ comma.addEventListener("click", ()=>{
 })
 
 ac.addEventListener("click", ()=>{
-    screen2.innerText = 0;
-    let number1 = 0;
-    let number2 = 0;
+    screen2.innerText = Number(0)
+    screen1.innerText = Number(0)
+    number1 = []
+    number2 = []
 });
+
+equal.addEventListener("click", ()=>{
+    switch (operand[0]) {
+        case "+":
+            result = Number(number1.join("")) + Number(number2.join(""))        
+            break;
+        case "-":
+            result = Number(number1.join("")) - Number(number2.join(""))
+            break;
+        case "*":
+            result = Number(number1.join("")) * Number(number2.join(""))
+            break;
+        case "/":
+            (number2==0) ? result = "ZeroDivision Error" : result = Number(number1.join("")) / Number(number2.join(""));
+            break;
+        default:
+            console.log("Please enter valid number");
+            break;
+    }
+    
+    console.log(result)
+});
+
+// let minus = document.querySelector(".minus");
+// let add = document.querySelector(".add");
+// let comma = document.querySelector(".comma");
+// let equal = document.querySelector(".equal");
+// let modulus = document.querySelector(".modulus");
+
+minus.addEventListener("click", ()=>{
+    operand.push(minus.innerText)
+    screen1.innerText = Number(number1.join("")) + operand;
+    screen2.innerText = []
+});
+
+add.addEventListener("click", ()=>{
+    operand.push(add.innerText)
+    screen1.innerText = Number(number1.join("")) + operand;
+    screen2.innerText = Number(0)
+});
+
+divide.addEventListener("click", ()=>{
+    operand.push(divide.innerText)
+    screen1.innerText = Number(number1.join("")) + operand;
+    screen2.innerText = Number(0)
+});
+
+multiply.addEventListener("click", ()=>{
+    operand.push(multiply.innerText)
+    screen1.innerText = Number(number1.join("")) + operand;
+    screen2.innerText = Number(0)
+});
+
